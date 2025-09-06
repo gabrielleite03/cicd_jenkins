@@ -1,0 +1,17 @@
+services:
+  postgres-db:
+    container_name: postgres-db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: tasks
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    networks:
+      - jenkins
+    ports:
+      - "5432:5432"
+
+networks:
+  jenkins:
+    driver: bridge
